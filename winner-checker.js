@@ -23,6 +23,7 @@ var winnerCheckerModule = (function () {
                 _tab.push(canvas);
             }
         }
+        
         if (_checkLine(0, 1, 2) || _checkLine(3, 4, 5) || _checkLine(6, 7, 8) ||
             _checkLine(0, 3, 6) || _checkLine(1, 4, 7) || _checkLine(2, 5, 8) ||
             _checkLine(0, 4, 8) || _checkLine(6, 4, 2)) {
@@ -36,15 +37,18 @@ var winnerCheckerModule = (function () {
                 gameStarted = 0;
                 historyModule.oWon();
                 boardModule.showHistory();
-            }
+            } 
+            return player;
         } else {
             if (moveCounter == 9) {
                 window.alert("Gra zakończona remisem!");
                 gameStarted = 0;
                 historyModule.wasDraw();
                 boardModule.showHistory();
+                return 2;
             }
         }
+        return -1;
     };
 
     var _checkLine = function (id1, id2, id3) {
