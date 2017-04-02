@@ -15,9 +15,9 @@ var gameModule = (function () {
             } else {
                 boardModule.drawO(id);
             }
+            moveCounter++;
             winnerCheckerModule.check(player);
             player = _switchPlayer(player);
-            moveCounter++;
             boardModule.showPlayer(player);
             // winnerCheckerModule.isOver();
         }

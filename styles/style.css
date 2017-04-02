@@ -38,6 +38,10 @@ h1{
     font-size: 30px;
     text-align: center;
 }
+
+h3{
+    text-align: center;
+}
 a#valid {
     align-content: right;
 }

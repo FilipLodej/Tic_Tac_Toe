@@ -9,9 +9,10 @@
     <script src="clock.js"></script>
     <script src="board.js"></script>
     <script src="winner-checker.js"></script>
+      <script src="history.js"></script>
 </head>
 
-<body onload="startClock();boardModule.createBoard(startPlayer);boardModule.showPlayer(startPlayer);">
+<body onload="startClock();boardModule.createBoard(startPlayer);boardModule.showPlayer(startPlayer);boardModule.showHistory()">
     <header>
         <h1>Gra w kółko i krzyżyk</h1>
         <h2 id="player"></h2>
@@ -31,6 +32,11 @@
     <footer>
         <div class="buttons">
             Data i czas: <span id="clock"></span>
+        </div>
+        <h2>Historia rozgrywki:</h2>
+        <h3 id="xwins"></h3>
+        <h3 id="owins"></h3>
+        <h3 id="drawn"></h3>
         </div>
     </footer>
 

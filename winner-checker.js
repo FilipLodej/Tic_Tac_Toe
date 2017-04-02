@@ -10,7 +10,7 @@ var winnerCheckerModule = (function () {
         if (moveCounter == 9) {
             window.alert("Gra zakończona!");
             gameStarted = 0;
-            return gameStarted;
+            historyModule.wasDraw();
         }
     };
     var _check = function (player) {
@@ -29,12 +29,22 @@ var winnerCheckerModule = (function () {
             if (player == 1) {
                 window.alert("Gra jest skończona! Wygrywa X");
                 gameStarted = 0;
+                historyModule.xWon();
+                boardModule.showHistory();
             } else {
                 window.alert("Gra jest skończona! Wygrywa O");
                 gameStarted = 0;
+                historyModule.oWon();
+                boardModule.showHistory();
+            }
+        } else {
+            if (moveCounter == 9) {
+                window.alert("Gra zakończona remisem!");
+                gameStarted = 0;
+                historyModule.wasDraw();
+                boardModule.showHistory();
             }
         }
-
     };
 
     var _checkLine = function (id1, id2, id3) {
@@ -43,8 +53,8 @@ var winnerCheckerModule = (function () {
             && _tab[id2].className == _tab[id3].className
     }
 
-    var _resetTab=function(){
-        _tab=[];
+    var _resetTab = function () {
+        _tab = [];
     }
 
     // var _checkOrto = function () {
@@ -89,6 +99,6 @@ var winnerCheckerModule = (function () {
         isOver: _isOver,
         check: _check,
         tab: _getTab,
-        resetTab:_resetTab
+        resetTab: _resetTab
     };
 })();

@@ -87,8 +87,24 @@ var boardModule = (function () {
         _createBoard(startPlayer);
         _showPlayer(startPlayer);
         winnerCheckerModule.resetTab();
-        gameStarted=1;
+        gameStarted = 1;
         moveCounter = 0;
+    };
+
+    var _showHistory = function () {
+        var h3x = document.getElementById("xwins");
+        var h3o = document.getElementById("owins");
+        var h3d = document.getElementById("drawn");
+        h3x.innerText = "X wygral:   " + String(historyModule.getTimesXWon());
+        h3o.innerText = "O wygralo:   " + String(historyModule.getTimesOWon());
+        h3d.innerText = "Remisow:   " + String(historyModule.getTimesWasDraw());
+        // div.textContent = "O wygralo:   " + String(historyModule.getTimesOWon());
+        // div.appendChild(br);
+        // div.textContent = "Remisow:   " + String(historyModule.getTimesWasDraw());
+        var text = h3x.textContent;
+        var text = h3o.textContent;
+        var text = h3d.textContent;
+
     };
     return {
         createBoard: _createBoard,
@@ -96,7 +112,8 @@ var boardModule = (function () {
         drawO: _drawO,
         resetGame: _resetGame,
         showPlayer: _showPlayer,
-        newGame: _newGame
+        newGame: _newGame,
+        showHistory: _showHistory
     };
 })();
 
