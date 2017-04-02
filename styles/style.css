@@ -1,0 +1,68 @@
+:root {
+    background-color: goldenrod;
+}
+
+body {
+    width: 80%;
+    background-color: khaki;
+    color: black;
+    margin: auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    font-family: Calibri;
+    border-radius: 10px;
+    padding: 50px;
+}
+
+span {
+color: sienna;
+}
+
+
+footer {
+    color: black;
+    background-color:cornsilk;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: 15px;
+    text-align: left;
+}
+
+h4 {
+font-family: Calibri;
+font-size: medium;
+}
+
+h1{
+    font-family: Calibri;
+    font-size: 30px;
+    text-align: center;
+}
+a#valid {
+    align-content: right;
+}
+
+canvas{
+    border:1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 1.5px;
+    margin-right: 1.5px;
+    margin-top: 1.5px;
+    margin-bottom: 1.5px;
+    background-color:darkkhaki;
+    font-weight: bold;
+
+}
+
+article{
+    justify-content: center;
+    text-align: center;
+}
+.buttons{
+    text-align: center;
+}
+
+div{
+    text-align: center;
+}
