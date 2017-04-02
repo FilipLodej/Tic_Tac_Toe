@@ -13,29 +13,39 @@ var winnerCheckerModule = (function () {
             return gameStarted;
         }
     };
-    var _check = function () {
+    var _check = function (player) {
         var classX = "occupatedX";
         var classO = "occupatedO";
-        if (gameStarted == 0) {
-            for (j = 1; j < 4; j++) {
-                for (i = 1; i < 4; i++) {
-                    var id = String(j) + String(i);
-                    var canvas = document.getElementById(id);
-                    _tab.push(canvas);
-                }
-            }
-            if (_tab[0].className == _tab[1].className && _tab[1].className == _tab[2].className ||
-                _tab[3].className == _tab[4].className && _tab[4].className == _tab[5].className ||
-                _tab[6].className == _tab[7].className && _tab[7].className == _tab[8].className ||
-                _tab[0].className == _tab[3].className && _tab[3].className == _tab[6].className ||
-                _tab[1].className == _tab[4].className && _tab[4].className == _tab[7].className ||
-                _tab[2].className == _tab[5].className && _tab[5].className == _tab[8].className ||
-                _tab[0].className == _tab[4].className && _tab[4].className == _tab[8].className ||
-                _tab[6].className == _tab[4].className && _tab[4].className == _tab[6].className ) {
-                    
+        for (j = 1; j < 4; j++) {
+            for (i = 1; i < 4; i++) {
+                var id = String(j) + String(i);
+                var canvas = document.getElementById(id);
+                _tab.push(canvas);
             }
         }
+        if (_checkLine(0, 1, 2) || _checkLine(3, 4, 5) || _checkLine(6, 7, 8) ||
+            _checkLine(0, 3, 6) || _checkLine(1, 4, 7) || _checkLine(2, 5, 8) ||
+            _checkLine(0, 4, 8) || _checkLine(6, 4, 2)) {
+            if (player == 1) {
+                window.alert("Gra jest skończona! Wygrywa X");
+                gameStarted = 0;
+            } else {
+                window.alert("Gra jest skończona! Wygrywa O");
+                gameStarted = 0;
+            }
+        }
+
     };
+
+    var _checkLine = function (id1, id2, id3) {
+        return _tab[id1].className != 'canvas'
+            && _tab[id1].className == _tab[id2].className
+            && _tab[id2].className == _tab[id3].className
+    }
+
+    var _resetTab=function(){
+        _tab=[];
+    }
 
     // var _checkOrto = function () {
     //     var classX = "occupatedX";
@@ -78,6 +88,7 @@ var winnerCheckerModule = (function () {
     return {
         isOver: _isOver,
         check: _check,
-        tab: _getTab
+        tab: _getTab,
+        resetTab:_resetTab
     };
 })();

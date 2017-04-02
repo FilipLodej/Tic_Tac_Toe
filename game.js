@@ -6,31 +6,37 @@ var gameModule = (function () {
     var _turn = function (id, player) {
         var occuO = "occupatedO";
         var occuX = "occupatedX";
+       if(gameStarted==1){
         if (document.getElementById(id).className == occuO || document.getElementById(id).className == occuX) {
-            window.alert("To pole jest już zajęte!");
-            return player = player;
+            window.alert("To pole jest już zajęte!");       
         } else {
             if (player == 1) {
                 boardModule.drawX(id);
-                player = 0;
-                moveCounter++;
-                boardModule.showPlayer(0);
-                winnerCheckerModule.isOver();
-                return player;
-                
             } else {
                 boardModule.drawO(id);
-                player = 1;
-                moveCounter++;
-                boardModule.showPlayer(1);
-                winnerCheckerModule.isOver();
-                return player;
-                
             }
+            winnerCheckerModule.check(player);
+            player = _switchPlayer(player);
+            moveCounter++;
+            boardModule.showPlayer(player);
+            // winnerCheckerModule.isOver();
         }
-
+       }else{
+           window.alert("Gra jest już skończona!");
+       }
+       return player;
     };
-    var _switchPlayer = function () {
+
+    var _switchPlayer = function (player) {
+        if (player == 0) {
+            player = 1;
+        } else {
+            player = 0;
+        }
+        return player;
+    };
+
+    var _switchStartPlayer = function () {
         if (startPlayer == 0) {
             startPlayer = 1;
         } else {
@@ -52,8 +58,9 @@ var gameModule = (function () {
 
     return {
         turn: _turn,
-        switchPlayer: _switchPlayer,
-        showStartPlayer: _showStartPlayer
+        switchStartPlayer: _switchStartPlayer,
+        showStartPlayer: _showStartPlayer,
+
     };
 })();
 

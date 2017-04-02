@@ -1,5 +1,5 @@
 var player = 1;
-var moveCounter=0;
+var moveCounter = 0;
 var boardModule = (function () {
 
     var _createBoard = function (player) {
@@ -59,18 +59,18 @@ var boardModule = (function () {
                 ctx.beginPath();
                 ctx.clearRect(0, 0, 100, 100);
                 canvas.className = "canvas";
-                
+
             }
         }
-        return moveCounter=0;
+        return moveCounter = 0;
     };
     var _showPlayer = function (player) {
         var h2 = document.getElementById("player");
         if (player == 1) {
-            h2.textContent = "Teraz kolej: X  " +String(moveCounter);
+            h2.textContent = "Teraz kolej: X  " + String(moveCounter);
             var text = h2.textContent;
         } else {
-            h2.textContent = "Teraz kolej: O  "+String(moveCounter);
+            h2.textContent = "Teraz kolej: O  " + String(moveCounter);
             var text = h2.textContent;
         }
     };
@@ -86,7 +86,9 @@ var boardModule = (function () {
         }
         _createBoard(startPlayer);
         _showPlayer(startPlayer);
-        return moveCounter=0;
+        winnerCheckerModule.resetTab();
+        gameStarted=1;
+        moveCounter = 0;
     };
     return {
         createBoard: _createBoard,

@@ -11,7 +11,7 @@
     <script src="winner-checker.js"></script>
 </head>
 
-<body onload="startClock();boardModule.createBoard();boardModule.showPlayer(startPlayer);">
+<body onload="startClock();boardModule.createBoard(startPlayer);boardModule.showPlayer(startPlayer);">
     <header>
         <h1>Gra w kółko i krzyżyk</h1>
         <h2 id="player"></h2>
@@ -23,7 +23,7 @@
         </br>
         <button onclick="boardModule.resetGame()">Reset</button>
         <button onclick="boardModule.newGame()">Nowa gra</button>
-        <button onclick="gameModule.switchPlayer()">Zmień rozpoczynającego gracza</button>
+        <button onclick="gameModule.switchStartPlayer()">Zmień rozpoczynającego gracza</button>
     </div>
     <div >
 <h2 id="next"></h2>
