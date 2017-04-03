@@ -98,9 +98,6 @@ var boardModule = (function () {
         h3x.innerText = "X wygral:   " + String(historyModule.getTimesXWon());
         h3o.innerText = "O wygralo:   " + String(historyModule.getTimesOWon());
         h3d.innerText = "Remisow:   " + String(historyModule.getTimesWasDraw());
-        // div.textContent = "O wygralo:   " + String(historyModule.getTimesOWon());
-        // div.appendChild(br);
-        // div.textContent = "Remisow:   " + String(historyModule.getTimesWasDraw());
         var text = h3x.textContent;
         var text = h3o.textContent;
         var text = h3d.textContent;

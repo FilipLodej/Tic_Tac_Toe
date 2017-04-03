@@ -19,7 +19,6 @@ var gameModule = (function () {
             winnerCheckerModule.check(player);
             player = _switchPlayer(player);
             boardModule.showPlayer(player);
-            // winnerCheckerModule.isOver();
         }
        }else{
            window.alert("Gra jest już skończona!");

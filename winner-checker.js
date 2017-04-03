@@ -11,6 +11,7 @@ var winnerCheckerModule = (function () {
             window.alert("Gra zakończona!");
             gameStarted = 0;
             historyModule.wasDraw();
+            return true;
         }
     };
     var _check = function (player) {
