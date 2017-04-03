@@ -41,7 +41,7 @@ var gameModule = (function () {
         } else {
             startPlayer = 0;
         }
-        return _showStartPlayer();
+        return gameModule.showStartPlayer();
     };
 
     var _showStartPlayer = function () {

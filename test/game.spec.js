@@ -39,4 +39,12 @@ describe('Game', function () {
         expect(boardModule.drawO).toHaveBeenCalled();
         winnerCheckerModule.resetTab();
     });
+
+        it('should switch start player', function () {
+        //given
+        //when     
+        gameModule.switchStartPlayer();
+        //then
+        expect(1).toBe(startPlayer);
+    });
 })
